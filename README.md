@@ -1,2 +1,5 @@
 # Gmod-BOT
-A simple bot made in discord.js for gmod 
+A simple counter bot made in discord.js (and gamedig) for gmod.
+
+### Support:
+ach#9690
