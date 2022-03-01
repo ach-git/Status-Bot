@@ -12,5 +12,5 @@ Edit the config.json file
 $ node index.js
 ```
 
-### Support:
+## Support:
 ach#9690
