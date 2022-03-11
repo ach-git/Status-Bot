@@ -6,6 +6,7 @@ A simple counter bot made in discord.js (and gamedig) for gmod.
 $ git clone https://github.com/ach-git/Gmod-BOT
 $ cd ../Gmod-BOT
 $ npm install discord.js
+$ npm install gamedig
 
 Edit the config.json file
 
