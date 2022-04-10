@@ -11,7 +11,7 @@ client.on("ready", () => {
 	
 	setInterval(() => {
             gamedig.query({
-		type: "garrysmod",
+		type: config.playerCountServerGame,
 	    	host: config.playerCountServerIP,
 	    	port: config.playerCountServerPort
 	}).then((state) => {							 
