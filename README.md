@@ -1,10 +1,10 @@
-# Gmod-BOT
-A simple counter bot made in discord.js (and gamedig) for gmod.
+# Status-Bot
+A simple status bot made in discord.js (and gamedig) for gmod/fivem...
 
 ## Installation:
 ```
 $ git clone https://github.com/ach-git/Gmod-BOT
-$ cd ../Gmod-BOT
+$ cd ../Status-Bot
 $ npm install discord.js
 $ npm install gamedig
 
