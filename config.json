@@ -1,4 +1,5 @@
 {
+    "playerCountServerGame": "fivem" // or garrysmod
     "playerCountServerIP": "141.94.238.112",
     "playerCountServerPort": "27015",
 
