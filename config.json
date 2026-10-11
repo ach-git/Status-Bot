@@ -1,7 +1,5 @@
 {
-    "playerCountServerGame": "fivem"
-    "playerCountServerIP": "141.94.238.112",
-    "playerCountServerPort": "27015",
-
-    "token": ""
+    "playerCountServerGame": "garrysmod",
+    "playerCountServerIP": "83.143.117.11", 
+    "playerCountServerPort": 20017
 }

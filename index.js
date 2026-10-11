@@ -1,25 +1,38 @@
 const config = require("./config.json");
-const Discord = require("discord.js");
-const gamedig = require("gamedig");
-const client = new Discord.Client();
+const { Client, GatewayIntentBits, ActivityType, Events } = require("discord.js");
+const { GameDig } = require("gamedig");
+require("dotenv").config();
+
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds
+	]
+});
 
 client.config = config;
 
-client.on("ready", () => {
+async function updateStatus() {
+	try {
+		const state = await GameDig.query({
+			type: config.playerCountServerGame,
+			host: config.playerCountServerIP,
+			port: config.playerCountServerPort
+		});
+		client.user.setActivity(`Joueur(s): ${state.players.length}/${state.maxplayers}`, {
+			type: ActivityType.Playing
+		});
+	} catch (error) {
+		console.error("[GAMEDIG]", error.message);
+		client.user.setActivity("Serveur Hors-Ligne", {
+			type: ActivityType.Playing
+		});
+	}
+}
 
-	console.log("[BOT] Connected to Discord.");
-	
-	setInterval(() => {
-            gamedig.query({
-		type: config.playerCountServerGame,
-	    	host: config.playerCountServerIP,
-	    	port: config.playerCountServerPort
-	}).then((state) => {							 
-		client.user.setActivity(`Joueur(s): ${state.players.length}/${state.maxplayers}`, {type: "PLAYING"});
-	}).catch((error) => {
-		client.user.setActivity(`:x: Serveur Hors-Ligne`, {type: "PLAYING"});
-        });
-      }, 15000); 	
+client.once(Events.ClientReady, () => {
+	console.log(`[BOT] Connecté en tant que ${client.user.tag}`);
+	updateStatus();
+	setInterval(updateStatus, 15000);
 });
 
-client.login(config.token);
+client.login(process.env.DISCORD_TOKEN);
